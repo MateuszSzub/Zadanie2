@@ -47,7 +47,10 @@ public class Calculator extends CalculatorBaseListener {
         Double result = firstStack.removeLast();
         for (int i = 1; i < ctx.getChildCount(); i = i + 2) {
             if (symbolEquals(ctx.getChild(i), CalculatorParser.POW)) {
-                result = Math.pow(firstStack.removeLast(), result);
+                result = Math.pow(result,firstStack.removeLast());
+            }
+            else{
+                result = Math.pow(result,1/firstStack.removeLast());
             }
         }
         secondStack.push(result);
@@ -88,7 +91,7 @@ public class Calculator extends CalculatorBaseListener {
     }
 
     public static void main(String[] args) throws Exception {
-        CharStream charStreams = CharStreams.fromFileName("./example.txt");
+        CharStream charStreams = CharStreams.fromFileName("C:\\Users\\mateu\\IdeaProjects\\antlr\\src\\example.txt");
         Double result = calc(charStreams);
         System.out.println("Result = " + result);
     }
