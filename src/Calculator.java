@@ -91,7 +91,7 @@ public class Calculator extends CalculatorBaseListener {
     }
 
     public static void main(String[] args) throws Exception {
-        CharStream charStreams = CharStreams.fromFileName("C:\\Users\\mateu\\IdeaProjects\\antlr\\src\\example.txt");
+        CharStream charStreams = CharStreams.fromFileName("./example.txt");
         Double result = calc(charStreams);
         System.out.println("Result = " + result);
     }
